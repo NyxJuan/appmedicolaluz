@@ -2,6 +2,7 @@ import 'package:appmedicolaluz/constants.dart';
 //import 'package:appmedicolaluz/providers/paciente_provider.dart';
 //import 'package:appmedicolaluz/screens/asistente/asistente.dart';
 import 'package:appmedicolaluz/screens/home_screen/home_screen.dart';
+import 'package:appmedicolaluz/screens/pending_teleconsultation/pending_teleconsultation_screen.dart';
 //import 'package:appmedicolaluz/screens/payment_screen/confirm_payment.dart';
 //import 'package:appmedicolaluz/screens/payment_screen/payment_screen.dart';
 //import 'package:appmedicolaluz/screens/splash/splash_screen.dart';
@@ -52,7 +53,7 @@ class _DrawerScaleIconState extends State<MenuScreen> {
                   color: kPrimaryColor,
                 ),
                 onPressed: () {
-                  //Navigator.pushNamed(context, PaymentScreen.routeName);
+                  Navigator.pushNamed(context, PendingTeleconsultationScreen.routeName);
                   //Navigator.pushNamed(context, PaymentScreen.routeName);
                 })
           ]),

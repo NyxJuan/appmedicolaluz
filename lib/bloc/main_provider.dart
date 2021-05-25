@@ -1,5 +1,5 @@
 import 'package:appmedicolaluz/bloc/medico_bloc.dart';
-//import 'package:appmedicolaluz/bloc/teleconsulta_bloc.dart';
+import 'package:appmedicolaluz/bloc/teleconsulta_bloc.dart';
 import 'package:flutter/material.dart';
 
 import 'login_bloc.dart';
@@ -9,7 +9,7 @@ class MainProvider extends InheritedWidget {
   final loginBloc = LoginBloc();
   //final _pacienteBloc = PacienteBloc();
   final _medicoBloc = MedicoBloc();
-  //final _teleconsultaBloc = TeleconsultaBloc();
+  final _teleconsultaBloc = TeleconsultaBloc();
 
   static MainProvider _instancia;
 
@@ -46,12 +46,12 @@ class MainProvider extends InheritedWidget {
         .dependOnInheritedWidgetOfExactType<MainProvider>()
         ._medicoBloc;
   }
-/*
+
   static TeleconsultaBloc teleconsultaBloc(BuildContext context) {
     return context
         .dependOnInheritedWidgetOfExactType<MainProvider>()
         ._teleconsultaBloc;
   }
-*/
+
 
 }

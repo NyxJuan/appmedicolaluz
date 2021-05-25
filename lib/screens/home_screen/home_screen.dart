@@ -22,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
         Padding(
           padding: EdgeInsets.all(10.0),
         ),
-        TitleView(
+       /* TitleView(
           titleTxt: 'Nuestro Staff',
           subTxt: 'Ver más',
         ),
@@ -39,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
           callBack: () {
             
           },
-        ),*/
+        ),*/*/
         Padding(
           padding: EdgeInsets.only(top: 5.0),
           child: TitleView(

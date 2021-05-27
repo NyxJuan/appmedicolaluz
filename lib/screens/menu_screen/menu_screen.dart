@@ -1,11 +1,11 @@
 import 'package:appmedicolaluz/constants.dart';
-//import 'package:appmedicolaluz/providers/paciente_provider.dart';
+import 'package:appmedicolaluz/providers/medico_provider.dart';
 //import 'package:appmedicolaluz/screens/asistente/asistente.dart';
 import 'package:appmedicolaluz/screens/home_screen/home_screen.dart';
 import 'package:appmedicolaluz/screens/pending_teleconsultation/pending_teleconsultation_screen.dart';
 //import 'package:appmedicolaluz/screens/payment_screen/confirm_payment.dart';
 //import 'package:appmedicolaluz/screens/payment_screen/payment_screen.dart';
-//import 'package:appmedicolaluz/screens/splash/splash_screen.dart';
+import 'package:appmedicolaluz/screens/splash/splash_screen.dart';
 import 'package:appmedicolaluz/utils/utils.dart';
 import 'package:drawerbehavior/drawer_scaffold.dart';
 import 'package:drawerbehavior/drawerbehavior.dart';
@@ -25,7 +25,7 @@ class _DrawerScaleIconState extends State<MenuScreen> {
   int selectedMenuItemId;
   int _currentIndex = 0;
   final GlobalKey<State> _keyLoader = new GlobalKey<State>();
-  //final pacientesProvider = new PacienteProvider();
+  final medicosProvider = new MedicoProvider();
 
   @override
   void initState() {
@@ -53,7 +53,8 @@ class _DrawerScaleIconState extends State<MenuScreen> {
                   color: kPrimaryColor,
                 ),
                 onPressed: () {
-                  Navigator.pushNamed(context, PendingTeleconsultationScreen.routeName);
+                  Navigator.pushNamed(
+                      context, PendingTeleconsultationScreen.routeName);
                   //Navigator.pushNamed(context, PaymentScreen.routeName);
                 })
           ]),
@@ -65,12 +66,12 @@ class _DrawerScaleIconState extends State<MenuScreen> {
           animation: true,
           color: kPrimaryColor,
           selectedItemId: selectedMenuItemId,
-          /*onMenuItemSelected: (itemId) {
-            if (itemId == 5) _logout(pacientesProvider, context);
+          onMenuItemSelected: (itemId) {
+            if (itemId == 5) _logout(medicosProvider, context);
             setState(() {
               selectedMenuItemId = itemId;
             });
-          },*/
+          },
         )
       ],
       builder: (context, id) => IndexedStack(
@@ -156,10 +157,10 @@ class _DrawerScaleIconState extends State<MenuScreen> {
       ),
     );
   }
-/*
-  Future<void> _logout(PacienteProvider provider, BuildContext context) async {
+
+  Future<void> _logout(MedicoProvider provider, BuildContext context) async {
     Dialogs.showLoadingDialog(context, _keyLoader, 'Cerrando Sesion');
-    bool response = await pacientesProvider.logout();
+    bool response = await medicosProvider.logout();
     if (response) {
       Navigator.of(_keyLoader.currentContext, rootNavigator: true).pop();
       Navigator.pushReplacementNamed(context, SplashScreen.routeName);
@@ -167,5 +168,5 @@ class _DrawerScaleIconState extends State<MenuScreen> {
       Navigator.of(_keyLoader.currentContext, rootNavigator: true).pop();
       showAlert(context, 'Ocurrio un error, Intentalo mas tarde');
     }
-  }*/
+  }
 }

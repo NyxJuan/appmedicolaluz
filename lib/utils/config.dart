@@ -1,5 +1,5 @@
 /*API DATA*/
-String urlApi = '5cf25f09194b.ngrok.io';
+String urlApi = 'edc4e3a0954d.ngrok.io';
 String versionApi = 'api/v1';
 Map<String, String> headersApi = {
   'Content-Type': 'application/json;charset=UTF-8',

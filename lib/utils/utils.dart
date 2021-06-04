@@ -1,10 +1,79 @@
 import 'dart:math';
 import 'package:appmedicolaluz/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 double roundDouble(double value, int places) {
   double mod = pow(10.0, places);
   return ((value * mod).round().toDouble() / mod);
+}
+
+Future<void> launchInBrowser(String url) async {
+  if (await canLaunch(url)) {
+    await launch(
+      url,
+    );
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
+void showAlertWithTitle(BuildContext context, String message, String title) {
+  showDialog(
+    context: context,
+    builder: (context) {
+      return AlertDialog(
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(20.0))),
+        backgroundColor: Colors.white,
+        title: Center(
+          child: Text(
+            title,
+            style:
+                TextStyle(fontWeight: FontWeight.bold, color: Colors.grey[700]),
+          ),
+        ),
+        content: Container(
+          height: 200.0,
+          child: Column(children: [
+            SizedBox(
+              height: 10,
+            ),
+            Icon(
+              Icons.error,
+              size: 70.0,
+              color: kPrimaryColor,
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            Text(
+              message,
+              textAlign: TextAlign.justify,
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            SizedBox(
+              width: 250.0,
+              height: 40.0,
+              child: RaisedButton.icon(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0)),
+                textColor: Colors.white,
+                color: kPrimaryColor,
+                label: Text(
+                  'Aceptar',
+                ),
+                icon: Icon(Icons.check),
+                onPressed: () => Navigator.of(context).pop(),
+              ),
+            )
+          ]),
+        ),
+      );
+    },
+  );
 }
 
 void showModalMessage(

@@ -1,4 +1,4 @@
-//import 'package:appmedicolaluz/screens/asistente/asistente.dart';
+import 'package:appmedicolaluz/screens/teleconsultation_info/teleconsultation_info_screen.dart';
 import 'package:flutter/widgets.dart';
 import 'package:appmedicolaluz/screens/menu_screen/menu_screen.dart';
 //import 'package:appmedicolaluz/screens/forgot_password/forgot_password_screen.dart';
@@ -20,5 +20,8 @@ final Map<String, WidgetBuilder> routes = {
   //SignUpScreen.routeName: (context) => SignUpScreen(),
   //CompleteProfileScreen.routeName: (context) => CompleteProfileScreen(),
   MenuScreen.routeName: (context) => MenuScreen(),
-  PendingTeleconsultationScreen.routeName:(context) => PendingTeleconsultationScreen(),
+  PendingTeleconsultationScreen.routeName: (context) =>
+      PendingTeleconsultationScreen(),
+  TeleconsultationInfoScreen.routeName: (context) =>
+      TeleconsultationInfoScreen(),
 };

@@ -19,6 +19,7 @@ class MedicoProvider {
 
     if (decodedResp.containsKey('token')) {
       _prefs.token = decodedResp['token'];
+      print(decodedResp['token']);
       return {'ok': true, 'token': decodedResp['token']};
     } else {
       return {'ok': false, 'message': decodedResp['message']};

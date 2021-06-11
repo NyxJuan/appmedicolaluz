@@ -144,4 +144,32 @@ class TeleconsultaProvider {
       return [];
     }
   }
+
+  Future<String> endTeleconsultation(
+      int idTeleconsulta, String diagnostico) async {
+    final prefs = new UserPreferences();
+    Map<String, String> requestHeaders = {
+      'Content-type': 'application/json',
+      'Accept': 'application/json',
+      'Authorization': 'Bearer ${prefs.token}'
+    };
+    print(diagnostico);
+    final body = jsonEncode(
+        {"idTeleconsulta": idTeleconsulta, "diagnostico": diagnostico});
+
+    final url =
+        Uri.https(urlApi, '$versionApi/teleconsulta/endTeleconsultation/');
+
+    final resp = await http.post(url, body: body, headers: requestHeaders);
+    if (resp.statusCode != 200 && resp.statusCode != 201) {
+      print('Algo salio mal');
+      print(resp.body);
+      return null;
+    }
+
+    final respData = json.decode(resp.body);
+    print(respData);
+
+    return 'success';
+  }
 }

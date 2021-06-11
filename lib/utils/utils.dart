@@ -1,5 +1,8 @@
 import 'dart:math';
 import 'package:appmedicolaluz/constants.dart';
+import 'package:appmedicolaluz/models/Teleconsulta.dart';
+import 'package:appmedicolaluz/providers/teleconsulta_provider.dart';
+import 'package:appmedicolaluz/screens/menu_screen/menu_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -16,6 +19,122 @@ Future<void> launchInBrowser(String url) async {
   } else {
     throw 'Could not launch $url';
   }
+}
+
+void showEndTeleconsultationModal(BuildContext context,
+    TeleconsultaProvider provider, Teleconsulta teleconsulta) {
+  final formKey = GlobalKey<FormState>();
+  String diagnostico = '';
+  final GlobalKey<State> _keyLoader = new GlobalKey<State>();
+  bool isSaving = false;
+  Future<void> _endTeleconsultation() async {
+    if (!formKey.currentState.validate()) return;
+
+    formKey.currentState.save();
+
+    isSaving = true;
+    Dialogs.showLoadingDialog(context, _keyLoader, 'Finalizando Teleconsulta');
+
+    String resp = await provider.endTeleconsultation(
+        teleconsulta.idTeleconsulta, diagnostico);
+    if (resp == "success") {
+      Navigator.of(context).pop();
+      Navigator.pushReplacementNamed(context, MenuScreen.routeName);
+    } else {
+      Navigator.of(_keyLoader.currentContext, rootNavigator: true).pop();
+      showAlertWithTitle(
+          context,
+          'No pudimos finalizar la teleconsulta, por favor intentalo mas tarde',
+          'Error');
+    }
+  }
+
+  showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          content: Stack(
+            overflow: Overflow.visible,
+            children: <Widget>[
+              Form(
+                key: formKey,
+                child: Container(
+                  height: 350.0,
+                  width: 300.0,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    // mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.check_circle,
+                            size: 40.0,
+                            color: kPrimaryColor,
+                          ),
+                          SizedBox(
+                            width: 10.0,
+                          ),
+                          Text(
+                            'Diagnostico Teleconsulta',
+                            style: TextStyle(
+                                color: kPrimaryColor,
+                                fontSize: 20.0,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                      TextFormField(
+                        keyboardType: TextInputType.multiline,
+                        maxLines: null,
+                        minLines: 4,
+                        decoration: InputDecoration(
+                          labelText: 'Diagnostico',
+                          counterText: '*Maximo de 200 caracteres',
+                        ),
+                        onSaved: (value) {
+                          diagnostico = value;
+                        },
+                        validator: (value) {
+                          if (value.length > 200 || value.length == 0) {
+                            return 'Ingrese un diagnostico valido';
+                          } else {
+                            return null;
+                          }
+                        },
+                      ),
+                      ButtonTheme(
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            primary: kPrimaryColor, // background
+                            onPrimary: Colors.grey, // foreground
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(Icons.check_circle_rounded,
+                                  color: Colors.white),
+                              SizedBox(
+                                width: 10.0,
+                              ),
+                              Text(
+                                'Finalizar teleconsulta',
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ],
+                          ),
+                          onPressed: () =>
+                              (isSaving) ? null : _endTeleconsultation(),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        );
+      });
 }
 
 void showAlertWithTitle(BuildContext context, String message, String title) {

@@ -17,6 +17,12 @@ class TeleconsultaBloc {
     return true;
   }
 
+    Future getTeleconsultaHistorialPaciente(int idPaciente) async {
+    final teleconsultaPacienteHistorial = await _teleconsultaProvider.getTeleconsultaHistorialPaciente(idPaciente);
+    teleconsultaController.sink.add(teleconsultaPacienteHistorial);
+    return true;
+  }
+
 
   dispose() {
     teleconsultaController?.close();

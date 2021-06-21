@@ -6,6 +6,7 @@ import 'package:appmedicolaluz/components/text_input_small_style.dart';
 import 'package:appmedicolaluz/models/ArchivoTeleconsulta.dart';
 import 'package:appmedicolaluz/models/Teleconsulta.dart';
 import 'package:appmedicolaluz/providers/teleconsulta_provider.dart';
+import 'package:appmedicolaluz/screens/teleconsultation_info/history_paciente_screen.dart';
 import 'package:appmedicolaluz/utils/utils.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
@@ -519,7 +520,7 @@ class _TeleconsultationInfoScreenState
                                     fontWeight: FontWeight.w400),
                               ),
                               SizedBox(
-                                height: 20.0,
+                                height: 10.0,
                               ),
                               Row(
                                 children: [
@@ -537,6 +538,21 @@ class _TeleconsultationInfoScreenState
                                         fontWeight: FontWeight.bold,
                                         color: Colors.white),
                                   ),
+                                  SizedBox(
+                                    width: getProportionateScreenWidth(25.0),
+                                  ),
+                                  FloatingActionButton(
+                                      heroTag: 'comment',
+                                      mini: true,
+                                      backgroundColor: Colors.white,
+                                      child: Icon(
+                                        Icons.article,
+                                        size: 20.0,
+                                        color: kPrimaryColor,
+                                      ),
+                                      onPressed: () {
+                                        Navigator.pushNamed(context,HistoryPacienteTeleconsultation.routeName,  arguments: teleconsulta.idPaciente);
+                                      }),
                                 ],
                               ),
                               Row(

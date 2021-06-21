@@ -522,3 +522,28 @@ void showAlertTeleconsultaPendiente(BuildContext context, String message) {
     },
   );
 }
+String getEspecialidadName(int index) {
+  switch (index) {
+    case 1:
+      return 'Reumatologia';
+      break;
+    case 2:
+      return 'Cardiologia';
+      break;
+    case 3:
+      return 'Fisiatria';
+      break;
+    case 4:
+      return 'Neumologia';
+      break;
+    case 5:
+      return 'Oftalmologia';
+      break;
+    case 6:
+      return 'Gastroenterologia';
+      break;
+    default:
+      return 'Sin nombre';
+  }
+}
+

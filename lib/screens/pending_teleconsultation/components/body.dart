@@ -97,12 +97,14 @@ class _TeleconsultaPendienteState extends State<TeleconsultaPendiente> {
                               margin: EdgeInsets.only(
                                   left: getProportionateScreenWidth(8),
                                   right: getProportionateScreenWidth(8)),
-                              child: Text(
+                              child: 
+                              Text(
+                                
                                 groupValue,
                                 textAlign: TextAlign.start,
                                 style: TextStyle(
                                     fontSize: 20, fontWeight: FontWeight.bold),
-                              ),
+                              )
                             ),
                             Container(
                               width: getProportionateScreenWidth(8),

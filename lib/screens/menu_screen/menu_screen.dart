@@ -55,7 +55,6 @@ class _DrawerScaleIconState extends State<MenuScreen> {
                 onPressed: () {
                   Navigator.pushNamed(
                       context, PendingTeleconsultationScreen.routeName);
-                  //Navigator.pushNamed(context, PaymentScreen.routeName);
                 })
           ]),
       drawers: [

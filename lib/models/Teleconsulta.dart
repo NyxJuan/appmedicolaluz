@@ -32,10 +32,13 @@ class Teleconsulta {
   String hora;
   String enlace;
   String especialidad;
+  int idEspecialidad;
   String foto;
   String nombresPaciente;
   String apellidosPaciente;
   String mes;
+  String nombresMedico;
+  String apellidosMedico;
 
   Teleconsulta({
     this.idTeleconsulta,
@@ -49,10 +52,14 @@ class Teleconsulta {
     this.hora,
     this.enlace,
     this.especialidad,
+    this.idEspecialidad,
     this.foto,
     this.nombresPaciente,
     this.apellidosPaciente,
     this.mes,
+    this.nombresMedico,
+    this.apellidosMedico,
+    
   });
 
   Teleconsulta.fromJsonMap(Map<String, dynamic> json) {
@@ -67,10 +74,13 @@ class Teleconsulta {
     hora = json['hora'];
     enlace = json['enlace'];
     especialidad = json['especialidad'];
+    idEspecialidad = json['idEspecialidad'];
     foto = json['foto'];
     nombresPaciente = json['nombresPaciente'];
     apellidosPaciente = json['apellidosPaciente'];
     mes = json['mes'];
+    nombresMedico = json['nombresMedico'];
+    apellidosMedico = json['apellidosMedico'];
 
   }
 }

@@ -1,3 +1,4 @@
+import 'package:appmedicolaluz/screens/teleconsultation_info/history_paciente_screen.dart';
 import 'package:appmedicolaluz/screens/teleconsultation_info/teleconsultation_info_screen.dart';
 import 'package:flutter/widgets.dart';
 import 'package:appmedicolaluz/screens/menu_screen/menu_screen.dart';
@@ -24,4 +25,5 @@ final Map<String, WidgetBuilder> routes = {
       PendingTeleconsultationScreen(),
   TeleconsultationInfoScreen.routeName: (context) =>
       TeleconsultationInfoScreen(),
+      HistoryPacienteTeleconsultation.routeName:(context)=>HistoryPacienteTeleconsultation(),
 };

@@ -172,4 +172,20 @@ class TeleconsultaProvider {
 
     return 'success';
   }
+
+    Future<List<Teleconsulta>> getTeleconsultaHistorialPaciente(int idPaciente) async {
+    Map<String, String> requestHeaders = {
+      'Content-type': 'application/json',
+      'Accept': 'application/json'
+    };
+    final url =
+        Uri.https(urlApi, '$versionApi/teleconsulta/historyTeleconsultationMedic',
+        {'idPaciente': idPaciente.toString()});
+      final resp = await http.get(url, headers: requestHeaders);
+      final decodedData = json.decode(resp.body);
+      final teleconsultasHistorial =
+          new Teleconsultas.fromJsonList(decodedData);
+      return teleconsultasHistorial.items;
+  }
+
 }

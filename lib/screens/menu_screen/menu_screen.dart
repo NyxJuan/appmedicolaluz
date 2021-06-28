@@ -112,48 +112,6 @@ class _DrawerScaleIconState extends State<MenuScreen> {
           }
         }).toList(),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          //Navigator.pushNamed(context, AsistantScreen.routeName);
-        },
-        backgroundColor: kPrimaryColor,
-        child: Icon(Icons.chat),
-      ),
-      bottomNavigationBar: BottomNavyBar(
-        selectedIndex: _currentIndex,
-        showElevation: true,
-        itemCornerRadius: 24,
-        curve: Curves.easeIn,
-        onItemSelected: (index) => setState(() => _currentIndex = index),
-        items: <BottomNavyBarItem>[
-          BottomNavyBarItem(
-            icon: Icon(Icons.apps),
-            title: Text('Teleconsultas'),
-            activeColor: kPrimaryColor,
-            textAlign: TextAlign.center,
-          ),
-          BottomNavyBarItem(
-            icon: Icon(Icons.search),
-            title: Text('Buscar Medico'),
-            activeColor: kPrimaryColor,
-            textAlign: TextAlign.center,
-          ),
-          BottomNavyBarItem(
-            icon: Icon(Icons.local_hospital),
-            title: Text(
-              'Laboratorios',
-            ),
-            activeColor: kPrimaryColor,
-            textAlign: TextAlign.center,
-          ),
-          BottomNavyBarItem(
-            icon: Icon(Icons.history),
-            title: Text('Historiales'),
-            activeColor: kPrimaryColor,
-            textAlign: TextAlign.center,
-          ),
-        ],
-      ),
     );
   }
 

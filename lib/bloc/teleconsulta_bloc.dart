@@ -24,6 +24,7 @@ class TeleconsultaBloc {
   }
 
 
+
   dispose() {
     teleconsultaController?.close();
     _loadingController?.close();

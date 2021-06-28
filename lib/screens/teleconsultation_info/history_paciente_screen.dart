@@ -1,4 +1,3 @@
-import 'package:appmedicolaluz/bloc/main_provider.dart';
 import 'package:appmedicolaluz/models/Teleconsulta.dart';
 import 'package:appmedicolaluz/providers/teleconsulta_provider.dart';
 import 'package:appmedicolaluz/screens/menu_screen/menu_screen.dart';

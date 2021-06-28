@@ -1,3 +1,5 @@
+import 'package:appmedicolaluz/screens/chat_screen/main.dart';
+import 'package:appmedicolaluz/screens/history_teleconsultation/history_teleconsultation.dart';
 import 'package:appmedicolaluz/screens/teleconsultation_info/history_paciente_screen.dart';
 import 'package:appmedicolaluz/screens/teleconsultation_info/teleconsultation_info_screen.dart';
 import 'package:flutter/widgets.dart';
@@ -26,4 +28,6 @@ final Map<String, WidgetBuilder> routes = {
   TeleconsultationInfoScreen.routeName: (context) =>
       TeleconsultationInfoScreen(),
       HistoryPacienteTeleconsultation.routeName:(context)=>HistoryPacienteTeleconsultation(),
+      MainChat.routeName:(context)=>MainChat(),
+  HistoryTeleconsultation.routeName:(context)=>HistoryPacienteTeleconsultation(),
 };

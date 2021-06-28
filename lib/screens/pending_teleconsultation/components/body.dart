@@ -36,10 +36,28 @@ class _TeleconsultaPendienteState extends State<TeleconsultaPendiente> {
     teleconsultaBloc.getTeleconsultasPendientes();
 
     return Scaffold(
-      appBar: AppBar(
+         appBar: AppBar(
         centerTitle: true,
-        title: Text('Teleconsultas Pendientes',
-            style: TextStyle(color: Colors.black, fontSize: 25)),
+        title: Column(
+          children: [
+            Text('TELECONSULTAS',
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                    color: kTextColor,
+                    letterSpacing: 12.0,
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.w300)),
+            Text(
+              'PENDIENTES',
+              textAlign: TextAlign.left,
+              style: TextStyle(
+                  color: kPrimaryColor,
+                  letterSpacing: 12.0,
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.w900),
+            ),
+          ],
+        ),
         //backgroundColor: kPrimaryColor,
       ),
       body: StreamBuilder(

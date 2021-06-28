@@ -30,7 +30,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   bottom_navy_bar: ^5.6.0
   flutter_svg: ^0.19.1 # help us to use SVG in our app
-  provider: ^2.0.0
+  provider: ^5.0.0
   drawerbehavior: ^2.1.0
   http: ^0.12.2
   rxdart: ^0.22.0
@@ -41,6 +41,10 @@ dependencies:
   mime_type:
   http_parser:
   grouped_list: ^4.0.0
+  pull_to_refresh: ^1.6.1
+  flutter_secure_storage: ^3.3.3
+  socket_io_client: ^0.9.11
+
 
   bubble:
   intl:

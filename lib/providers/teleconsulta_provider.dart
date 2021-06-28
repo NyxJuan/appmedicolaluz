@@ -188,4 +188,26 @@ class TeleconsultaProvider {
       return teleconsultasHistorial.items;
   }
 
+  Future<List<Teleconsulta>> getTeleconsultaHistorial() async {
+    final prefs = new UserPreferences();
+    Map<String, String> requestHeaders = {
+      'Content-type': 'application/json',
+      'Accept': 'application/json',
+      'Authorization': 'Bearer ${prefs.token}'
+    };
+
+    final url = Uri.https(
+        urlApi, '$versionApi/teleconsulta/showMedicHistory');
+
+    if (prefs.token != '') {
+      final resp = await http.get(url, headers: requestHeaders);
+      final decodedData = json.decode(resp.body);
+      final teleconsultasHistorial =
+          new Teleconsultas.fromJsonList(decodedData);
+      return teleconsultasHistorial.items;
+    } else {
+      return [];
+    }
+  }
+
 }

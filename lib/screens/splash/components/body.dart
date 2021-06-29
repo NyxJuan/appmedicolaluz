@@ -17,18 +17,16 @@ class _BodyState extends State<Body> {
   int currentPage = 0;
   List<Map<String, String>> splashData = [
     {
-      "text": "Nuestros servicios desde cualquier lugar!",
-      "image": "assets/images/splash_1.png"
+      "text": "Comunicate con tus pacientes",
+      "image": "assets/images/splash_3.png"
     },
     {
-      "text":
-          "Teleconsultas desde la comodidad de tu hogar\ncon nuestros mejores profesionales",
+      "text": "Teleconsultas y chats desde\nel lugar que desees",
       "image": "assets/images/splash_2.png"
     },
     {
-      "text":
-          "Separa citas para nuestros laboratorios. \nOlvidate de las colas!",
-      "image": "assets/images/splash_3.png"
+      "text": "Adjunta recetas medicas \ndesde la app movil.",
+      "image": "assets/images/splash_1.png"
     },
   ];
   @override
@@ -93,7 +91,7 @@ class _BodyState extends State<Body> {
       height: 6,
       width: currentPage == index ? 20 : 6,
       decoration: BoxDecoration(
-        color: currentPage == index ? kPrimaryColor : HexColor("#cf1927"),
+        color: currentPage == index ? kPrimaryColor : HexColor("#3f71bf"),
         borderRadius: BorderRadius.circular(3),
       ),
     );

@@ -2,7 +2,7 @@ import 'package:appmedicolaluz/helper/hexcolors.dart';
 import 'package:appmedicolaluz/size_config.dart';
 import 'package:flutter/material.dart';
 
-Color kPrimaryColor = HexColor("#cf1927");
+Color kPrimaryColor = HexColor("#5496ff");
 const kPrimaryLightColor = Color(0xFFFFECDF);
 const kPrimaryGradientColor = LinearGradient(
   begin: Alignment.topLeft,

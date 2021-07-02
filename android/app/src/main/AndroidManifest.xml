@@ -1,10 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.appmedicolaluz">
+    package="com.construccion2.appmedicolaluz">
     <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="appmedicolaluz"
+        android:label="Clinica La Luz (Medicos)"
          android:usesCleartextTraffic="true" 
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

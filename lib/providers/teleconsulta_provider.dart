@@ -158,7 +158,7 @@ class TeleconsultaProvider {
         {"idTeleconsulta": idTeleconsulta, "diagnostico": diagnostico});
 
     final url =
-        Uri.https(urlApi, '$versionApi/teleconsulta/endTeleconsultation/');
+        Uri.https(urlApi, '$versionApi/teleconsulta/endTeleconsultation');
 
     final resp = await http.post(url, body: body, headers: requestHeaders);
     if (resp.statusCode != 200 && resp.statusCode != 201) {
@@ -173,19 +173,20 @@ class TeleconsultaProvider {
     return 'success';
   }
 
-    Future<List<Teleconsulta>> getTeleconsultaHistorialPaciente(int idPaciente) async {
+  Future<List<Teleconsulta>> getTeleconsultaHistorialPaciente(
+      int idPaciente) async {
     Map<String, String> requestHeaders = {
       'Content-type': 'application/json',
       'Accept': 'application/json'
     };
-    final url =
-        Uri.https(urlApi, '$versionApi/teleconsulta/historyTeleconsultationMedic',
+    final url = Uri.https(
+        urlApi,
+        '$versionApi/teleconsulta/historyTeleconsultationMedic',
         {'idPaciente': idPaciente.toString()});
-      final resp = await http.get(url, headers: requestHeaders);
-      final decodedData = json.decode(resp.body);
-      final teleconsultasHistorial =
-          new Teleconsultas.fromJsonList(decodedData);
-      return teleconsultasHistorial.items;
+    final resp = await http.get(url, headers: requestHeaders);
+    final decodedData = json.decode(resp.body);
+    final teleconsultasHistorial = new Teleconsultas.fromJsonList(decodedData);
+    return teleconsultasHistorial.items;
   }
 
   Future<List<Teleconsulta>> getTeleconsultaHistorial() async {
@@ -196,8 +197,7 @@ class TeleconsultaProvider {
       'Authorization': 'Bearer ${prefs.token}'
     };
 
-    final url = Uri.https(
-        urlApi, '$versionApi/teleconsulta/showMedicHistory');
+    final url = Uri.https(urlApi, '$versionApi/teleconsulta/showMedicHistory');
 
     if (prefs.token != '') {
       final resp = await http.get(url, headers: requestHeaders);
@@ -209,5 +209,4 @@ class TeleconsultaProvider {
       return [];
     }
   }
-
 }
